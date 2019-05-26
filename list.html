@@ -1,0 +1,39 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+<body class="back">
+<input type="button" value="wordlist" onclick="toword()"/><br>
+<input type="button" value="sentencelist" onclick="tosentence()"/><br>
+<input type="button" value="allstudent" onclick="allstudent()"/><br>
+<input type="button" value="log out" onclick="logout()"/>
+</body>
+</html>
+<script>
+    function getQueryVariable(variable)
+    {
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i=0;i<vars.length;i++) {
+            var pair = vars[i].split("=");
+            if(pair[0] == variable){return pair[1];}
+        }
+        return(false);
+    }
+    function toword(){
+        var name1= getQueryVariable("name");
+        window.location.href="word.php?name="+name1;
+    }
+    function tosentence(){
+        var name1= getQueryVariable("name");
+        window.location.href="sentence.php?name="+name1;
+    }
+    function allstudent(){
+        window.location.href="allstudent.php";
+    }
+    function logout(){
+        var name1= getQueryVariable("name");
+        window.location.href="logout.php?name="+name1;
+    }
+</script>
